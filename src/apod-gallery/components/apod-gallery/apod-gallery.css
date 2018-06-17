@@ -1,0 +1,124 @@
+/* * {
+  border: solid green 0.5px;
+} */
+
+.App {
+  text-align: center;
+  height: 100%;
+}
+
+.App-header {
+  background-color: #333;
+  height: 75px;
+  padding: 1vh;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+main {
+  margin: 1vw;
+}
+
+#img-navigation {
+  /* display: block; */
+  margin: 5px auto 5px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
+  max-height: 75px;
+}
+
+h4, h5, h6 {
+  margin: 10px;
+}
+
+.response-img {
+  position: relative;
+  cursor: pointer;
+  max-height: 500px;
+  max-width: 100%;
+  width: auto;
+  border: solid #222 4px;
+  box-sizing: border-box;
+  margin: 10px auto;
+  box-shadow: 6px 6px 6px rgb(53, 107, 104);
+
+}
+
+p {
+  padding: 10px;
+  background: rgb(200, 200, 200);
+  max-width: 600px;
+  margin: 10px auto 10px auto;
+  box-shadow: 6px 6px 6px rgb(53, 107, 104);
+
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+/* CSS for the image navigations */
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  grid-row: 1;
+  outline: none;
+  width: 65px;
+  height: 65px;
+  margin: 10px;
+
+}
+
+.modal-button {
+  position: relative;
+}
+
+.modal-left {
+  justify-self: end;
+  grid-column: 1;
+}
+
+.modal-right {
+  grid-column: 3/4;
+  justify-self: start;
+}
+
+.modal-close {
+  grid-column: 3;
+  justify-self: center;
+  align-self: flex-start;
+  top: 5vh;
+  right: 5vh;
+  padding-left: 2vw;
+}
+
+svg {
+  color: black;
+  z-index: 9999;
+  margin: 1px auto;
+  width: 50px;
+  height: 50px;
+  transition: 100ms linear;
+}
+
+
+line {
+  stroke-width: 10px;
+}
+
+svg:hover {
+  transform: scale(1.25);
+}

@@ -1,0 +1,19 @@
+form {
+  /* margin: 10px auto 10px auto; */
+  background: lightgray;
+  max-width: 600px;
+  min-width: 400px;
+  max-height: inherit;
+  font-size: 1;
+  box-shadow: 6px 6px 6px rgb(53, 107, 104);
+}
+
+select {
+  margin: 10px;
+  border: 1.5px solid black;
+  background: white;
+  font-size: 1.25em;
+  border-radius: 3px;
+  padding: 5px;
+  font-family: inherit;
+}
