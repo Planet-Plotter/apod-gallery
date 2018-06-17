@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './form.css';
 
 class MyForm extends Component {
@@ -146,7 +146,7 @@ class MyForm extends Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
         <form
           id="planet-form"
           onSubmit={this.handleSubmit}
@@ -182,7 +182,7 @@ class MyForm extends Component {
             {this.createYearOptions()}
           </select>
         </form>
-      </div>
+      </Fragment>
     );
   }
 }
