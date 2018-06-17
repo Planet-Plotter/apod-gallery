@@ -2,8 +2,8 @@ form {
   /* margin: 10px auto 10px auto; */
   background: lightgray;
   max-width: 600px;
-  min-width: 400px;
-  max-height: inherit;
+  /* min-width: 300px; */
+  /* max-height: inherit; */
   font-size: 1;
   box-shadow: 6px 6px 6px rgb(53, 107, 104);
 }
@@ -16,6 +16,10 @@ select {
   border-radius: 3px;
   padding: 5px;
   font-family: inherit;
+}
+
+#year-lable {
+  display: inline-block;
 }
 
 @media screen and (max-width: 575px){

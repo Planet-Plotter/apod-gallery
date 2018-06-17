@@ -171,16 +171,17 @@ class MyForm extends Component {
           >
             {this.createMonthOptions()}
           </select>
-          
-          <label htmlFor="select-year">Year</label>
-          <select
-            key={300}
-            id="select-year"
-            name="year"
-            onChange={this.handleSelectChange}
-          >
-            {this.createYearOptions()}
-          </select>
+          <div id="year-lable">
+            <label htmlFor="select-year">Year</label>
+            <select
+              key={300}
+              id="select-year"
+              name="year"
+              onChange={this.handleSelectChange}
+            >
+              {this.createYearOptions()}
+            </select>
+          </div>
         </form>
       </Fragment>
     );
