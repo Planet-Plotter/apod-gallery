@@ -37,6 +37,7 @@ main {
   border: solid #222 4px;
   padding-top: 4px;
   background-color: rgba(50,50,50, 1);
+  min-height: 200px;
 }
 
 #apod-img-container img {
