@@ -33,6 +33,7 @@ main {
   max-width: 100%;
   box-sizing: border-box;
   border: solid #222 4px;
+  padding-top: 4px;
   background-color: rgba(50,50,50, 1);
 }
 
@@ -59,23 +60,19 @@ main {
 
 #apod-top-footer {
   top: 0;
-  left: 0;
 }
 
-#apod-img-container #apod-bottom-footer {
-  grid-template-columns: auto auto;
-  text-align: center;
+#apod-bottom-footer {
   bottom: 0;
-  left: 0;
-  box-sizing: border-box;
 }
 
 #apod-top-footer p {
+  font-weight: 700;
   display: inline-block;
   align-self: flex-start;
   max-width: 75%;
   margin: 0;
-  padding: 2%;
+  padding: 3%;
   padding-top: 20px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -89,9 +86,15 @@ main {
   border: none;
   cursor: pointer;
   outline: none;
+  padding: 0;
   background-color: rgba(50,50,50, .7);
   min-width: 90%;
   min-height: 100%;
+  justify-self: flex-start;
+}
+
+#apod-img-container #apod-next-button {
+  justify-self: flex-end;
 }
 
 #apod-top-footer svg {
@@ -101,11 +104,12 @@ main {
   transition: 100ms linear;
 }
 
-#apod-share-svg {
-  justify-self: flex-end;
+#apod-top-footer line {
+  stroke-width: 50px;
+  stroke: white;
 }
 
-#apod-expand-svg {
+#apod-bottom-footer button {
   justify-self: flex-start;
 }
 
@@ -115,12 +119,14 @@ main {
   width: 35px;
   transition: 100ms linear;
   padding: 15px;
-  background-color: rgba(50,50,50, .7);
 }
 
-#apod-top-footer line {
-  stroke-width: 50px;
-  stroke: white;
+#apod-share-svg {
+  justify-self: flex-end;
+}
+
+#apod-expand-svg {
+  justify-self: flex-start;
 }
 
 #apod-bottom-footer path {

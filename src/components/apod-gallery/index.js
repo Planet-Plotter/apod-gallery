@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import superagent from 'superagent';
-
-// import TableOne from '../table';
-import Modal from '../modal';
 import Form from '../form';
 import PreviousSlider from '../previous-slider';
 import NextSlider from '../next-slider';
@@ -194,35 +191,26 @@ class App extends Component {
               <img //eslint-disable-line
                 src={url}
                 alt={title}
-                onClick={this.openHDImg}
               />)}
             <footer id="apod-top-footer">
-              <PreviousSlider handlePreviousImg={this.handlePreviousImg} />
+              <PreviousSlider id="apod-previous-button" handlePreviousImg={this.handlePreviousImg} />
               <p>{title}</p>
-              <NextSlider handleNextImg={this.handleNextImg} />
+              <NextSlider id="apod-next-button" handleNextImg={this.handleNextImg} />
             </footer>
             <footer id="apod-bottom-footer">
-              <svg id="apod-expand-svg" viewBox="0 0 32 32">
-                <path d="M32 0h-13l5 5-6 6 3 3 6-6 5 5z" />
-                <path d="M32 32v-13l-5 5-6-6-3 3 6 6-5 5z" />
-                <path d="M0 32h13l-5-5 6-6-3-3-6 6-5-5z" />
-                <path d="M0 0v13l5-5 6 6 3-3-6-6 5-5z" />
-              </svg>
-              <svg id="apod-share-svg" viewBox="0 0 32 32">
-                <path d="M27 22c-1.411 0-2.685 0.586-3.594 1.526l-13.469-6.734c0.041-0.258 0.063-0.522 0.063-0.791s-0.022-0.534-0.063-0.791l13.469-6.734c0.909 0.94 2.183 1.526 3.594 1.526 2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5c0 0.269 0.022 0.534 0.063 0.791l-13.469 6.734c-0.909-0.94-2.183-1.526-3.594-1.526-2.761 0-5 2.239-5 5s2.239 5 5 5c1.411 0 2.685-0.586 3.594-1.526l13.469 6.734c-0.041 0.258-0.063 0.522-0.063 0.791 0 2.761 2.239 5 5 5s5-2.239 5-5c0-2.761-2.239-5-5-5z" />
-              </svg>
+              <button
+                onClick={this.openHDImg}
+              >
+                <svg id="apod-expand-svg" viewBox="0 0 32 32">
+                  <path d="M32 0h-13l5 5-6 6 3 3 6-6 5 5z" />
+                  <path d="M32 32v-13l-5 5-6-6-3 3 6 6-5 5z" />
+                  <path d="M0 32h13l-5-5 6-6-3-3-6 6-5-5z" />
+                  <path d="M0 0v13l5-5 6 6 3-3-6-6 5-5z" />
+                </svg>
+              </button>
             </footer>
           </div>
           <p>{explanation}</p>
-          {/* { this.state.modalIsOpen ? 
-            <Modal
-              isOpen={this.state.modalIsOpen}
-              data={this.state.data}
-              error={this.state.error}
-              closeModal={this.toggleModal}
-              handleNextImg={this.handleNextImg}
-              handlePreviousImg={this.handlePreviousImg}
-          /> : null } */}
         </main>       
       </div>
     );
