@@ -33,10 +33,17 @@ class App extends Component {
   requestPlanetData = (queryUrl) => {
     superagent.get(queryUrl)
       .then(response => {
-        this.setState({
-          data: response.body[0],
-          error: '',
-        });
+        if (response.body[0].media_type === 'video') {
+          this.setState({
+            error: `Video Not supported at this time. \n View it here: ${response.body[0].url}`,
+            data: response.body[0],
+          });
+        } else {
+          this.setState({
+            data: response.body[0],
+            error: '',
+          });
+        }
       })
       .catch(error => {
         console.log(error);
@@ -222,14 +229,16 @@ class App extends Component {
                 hide={this.state.currentDateReached ? 'apod-hide' : null}
               />
             </footer>
-            <footer id="apod-bottom-footer">
-              <HDViewButton
-                id="apod-hd-button" 
-                openHDImg={this.openHDImg}
-              />
+            {this.state.error ? null : (
+              <footer id="apod-bottom-footer">
+                <HDViewButton
+                  id="apod-hd-button" 
+                  openHDImg={this.openHDImg}
+                />
 
-              {/* TODO: ADD button and svg for sharing image */}
-            </footer>
+                {/* TODO: ADD button and svg for sharing image */}
+              </footer>
+            )}
           </div>
           <p>{explanation}</p>
         </main>       
