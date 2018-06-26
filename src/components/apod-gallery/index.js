@@ -4,6 +4,7 @@ import Form from '../form';
 import PreviousSlider from '../previous-slider';
 import NextSlider from '../next-slider';
 import './apod-gallery.css';
+import HDViewButton from '../hd-view-button';
 
 
 class App extends Component {
@@ -186,6 +187,7 @@ class App extends Component {
           </div>            
 
           {/* TODO: ADD conditonal to have a loading bar if image is loading, else display image */}
+
           <div id="apod-img-container">
             {this.state.error ? errorJSX : (
               <img //eslint-disable-line
@@ -193,21 +195,23 @@ class App extends Component {
                 alt={title}
               />)}
             <footer id="apod-top-footer">
-              <PreviousSlider id="apod-previous-button" handlePreviousImg={this.handlePreviousImg} />
+              <PreviousSlider
+                id="apod-previous-button"
+                handlePreviousImg={this.handlePreviousImg}
+              />
               <p>{title}</p>
-              <NextSlider id="apod-next-button" handleNextImg={this.handleNextImg} />
+              <NextSlider
+                id="apod-next-button"
+                handleNextImg={this.handleNextImg}
+              />
             </footer>
             <footer id="apod-bottom-footer">
-              <button
-                onClick={this.openHDImg}
-              >
-                <svg id="apod-expand-svg" viewBox="0 0 32 32">
-                  <path d="M32 0h-13l5 5-6 6 3 3 6-6 5 5z" />
-                  <path d="M32 32v-13l-5 5-6-6-3 3 6 6-5 5z" />
-                  <path d="M0 32h13l-5-5 6-6-3-3-6 6-5-5z" />
-                  <path d="M0 0v13l5-5 6 6 3-3-6-6 5-5z" />
-                </svg>
-              </button>
+              <HDViewButton
+                id="apod-hd-button" 
+                openHDImg={this.openHDImg}
+              />
+
+              {/* TODO: ADD button and svg for sharing image */}
             </footer>
           </div>
           <p>{explanation}</p>
