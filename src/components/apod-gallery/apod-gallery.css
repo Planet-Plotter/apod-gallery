@@ -1,17 +1,19 @@
 .apod-gallery {
   text-align: center;
   height: 100%;
-  margin: 1vw;
+  margin: 1vw auto;
+  max-width: 750px;
 }
 
 .apod-gallery header {
   background-color: rgb(187, 227, 255);
-  padding: 1vh;
   color: #333;
+  padding: 1vh 1vw;
 }
 
 .apod-gallery h1 {
   font-size: 1.5em;
+  margin:0;
 }
 
 main {
@@ -21,10 +23,10 @@ main {
 
 #apod-img-navigation {
   margin: 5px auto 5px auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 600px;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* max-width: 600px; */
 }
 
 #apod-img-container {
@@ -40,7 +42,7 @@ main {
 #apod-img-container img {
   position: relative;
   margin: 0 auto;
-  cursor: pointer;
+  /* cursor: pointer; */
   max-height: 500px;
   max-width: 100%;
   box-sizing: border-box;
@@ -154,12 +156,4 @@ main {
   max-width: 100%;
   margin: 10px auto 10px auto;
   box-shadow: 3px 3px 3px rgb(53, 107, 104);
-}
-
-@media screen and (max-width: 575px){
-  #apod-img-navigation {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
-  }
 }
