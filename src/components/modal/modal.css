@@ -28,11 +28,11 @@ button {
   padding: 0;
 }
 
-.modal-button {
+.apod-gallery-button {
   position: relative;
 }
 
-.modal-left {
+. {
   justify-self: end;
   grid-column: 1;
 }

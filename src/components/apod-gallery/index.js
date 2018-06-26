@@ -162,6 +162,8 @@ class App extends Component {
       data, 
     } = this.state;
 
+    const errorJSX = (<div id="apod-error"> {this.state.error} </div>);
+
     let url, //eslint-disable-line
       title, 
       explanation = null;
@@ -172,35 +174,47 @@ class App extends Component {
       explanation = data.explanation;//eslint-disable-line
     }
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title"> Astronomy Picture of the Day</h1>
+      <div className="apod-gallery">
+        <header>
+          <h1> Astronomy Picture of the Day</h1>
         </header>
         <main>
-          <div id="img-navigation">
-            <PreviousSlider handlePreviousImg={this.handlePreviousImg} />
+          <div id="apod-img-navigation">
             <Form
               day={this.state.day}
               month={this.state.month}
               year={this.state.year}
               onComplete={this.handleSubmit}
             />
-            <NextSlider handleNextImg={this.handleNextImg} />
           </div>            
 
-          <h5>Click the Image for a Larger View</h5>
-
           {/* TODO: ADD conditonal to have a loading bar if image is loading, else display image */}
-
-          <img //eslint-disable-line
-            className="response-img"
-            src={url}
-            alt={title}
-            onClick={this.openHDImg}
-          />
-          <h4>{title}</h4>
+          <div id="apod-img-container">
+            {this.state.error ? errorJSX : (
+              <img //eslint-disable-line
+                src={url}
+                alt={title}
+                onClick={this.openHDImg}
+              />)}
+            <footer id="apod-top-footer">
+              <PreviousSlider handlePreviousImg={this.handlePreviousImg} />
+              <p>{title}</p>
+              <NextSlider handleNextImg={this.handleNextImg} />
+            </footer>
+            <footer id="apod-bottom-footer">
+              <svg id="apod-expand-svg" viewBox="0 0 32 32">
+                <path d="M32 0h-13l5 5-6 6 3 3 6-6 5 5z" />
+                <path d="M32 32v-13l-5 5-6-6-3 3 6 6-5 5z" />
+                <path d="M0 32h13l-5-5 6-6-3-3-6 6-5-5z" />
+                <path d="M0 0v13l5-5 6 6 3-3-6-6 5-5z" />
+              </svg>
+              <svg id="apod-share-svg" viewBox="0 0 32 32">
+                <path d="M27 22c-1.411 0-2.685 0.586-3.594 1.526l-13.469-6.734c0.041-0.258 0.063-0.522 0.063-0.791s-0.022-0.534-0.063-0.791l13.469-6.734c0.909 0.94 2.183 1.526 3.594 1.526 2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5c0 0.269 0.022 0.534 0.063 0.791l-13.469 6.734c-0.909-0.94-2.183-1.526-3.594-1.526-2.761 0-5 2.239-5 5s2.239 5 5 5c1.411 0 2.685-0.586 3.594-1.526l13.469 6.734c-0.041 0.258-0.063 0.522-0.063 0.791 0 2.761 2.239 5 5 5s5-2.239 5-5c0-2.761-2.239-5-5-5z" />
+              </svg>
+            </footer>
+          </div>
           <p>{explanation}</p>
-          { this.state.modalIsOpen ? 
+          {/* { this.state.modalIsOpen ? 
             <Modal
               isOpen={this.state.modalIsOpen}
               data={this.state.data}
@@ -208,7 +222,7 @@ class App extends Component {
               closeModal={this.toggleModal}
               handleNextImg={this.handleNextImg}
               handlePreviousImg={this.handlePreviousImg}
-            /> : null }
+          /> : null } */}
         </main>       
       </div>
     );

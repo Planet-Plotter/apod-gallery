@@ -1,144 +1,165 @@
-
-.App {
+.apod-gallery {
   text-align: center;
   height: 100%;
-}
-
-.App-header {
-  background-color: #333;
-  height: 75px;
-  padding: 1vh;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-main {
   margin: 1vw;
 }
 
-#img-navigation {
+.apod-gallery header {
+  background-color: rgb(187, 227, 255);
+  padding: 1vh;
+  color: #333;
+}
+
+.apod-gallery h1 {
+  font-size: 1.5em;
+}
+
+main {
+  padding: 1vh 1vw;
+  background-color: rgb(234,244,251);
+}
+
+#apod-img-navigation {
   margin: 5px auto 5px auto;
   display: flex;
   align-items: center;
   justify-content: center;
   max-width: 600px;
-  /* max-height: 75px; */
 }
 
-h4, h5, h6 {
-  margin: 10px;
-}
-
-.response-img {
+#apod-img-container {
   position: relative;
+  display: block;
+  max-width: 100%;
+  box-sizing: border-box;
+  border: solid #222 4px;
+  background-color: rgba(50,50,50, 1);
+}
+
+#apod-img-container img {
+  position: relative;
+  margin: 0 auto;
   cursor: pointer;
   max-height: 500px;
   max-width: 100%;
-  width: auto;
-  border: solid #222 4px;
   box-sizing: border-box;
-  margin: 10px auto;
-  box-shadow: 6px 6px 6px rgb(53, 107, 104);
-
 }
 
-p {
-  padding: 10px;
-  background: rgb(200, 200, 200);
-  max-width: 600px;
-  margin: 10px auto 10px auto;
-  box-shadow: 6px 6px 6px rgb(53, 107, 104);
-
+#apod-img-container footer {
+  display: grid;
+  grid-template-columns: auto 75% auto;
+  grid-template-rows: 1fr;
+  align-items: center;
+  justify-items: center;
+  position: absolute;
+  width: 100%;
+  color: white;
+  font-size: 20px;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+#apod-top-footer {
+  top: 0;
+  left: 0;
 }
 
+#apod-img-container #apod-bottom-footer {
+  grid-template-columns: auto auto;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+  box-sizing: border-box;
+}
 
-/* CSS for the image navigations */
+#apod-top-footer p {
+  display: inline-block;
+  align-self: flex-start;
+  max-width: 75%;
+  margin: 0;
+  padding: 2%;
+  padding-top: 20px;
 
-button {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  /* outline: 2px dotted blue; */
+  background-color: rgba(50,50,50, .7);
+}
+
+#apod-img-container button {
+  display: inline;
+  box-sizing: border-box;
+  bottom: 5px;
+  color: white;
   background: none;
   border: none;
   cursor: pointer;
-  grid-row: 1;
+  padding: 5px;
   outline: none;
-  width: 65px;
-  height: 65px;
-  margin: 10px;
-
+  /* background-color: rgba(50,50,50, .7); */
+  min-width: 100%;
+  min-height: 100%;
 }
 
-.modal-button {
-  position: relative;
-}
-
-.modal-left {
-  justify-self: end;
-  grid-column: 1;
-}
-
-.modal-right {
-  grid-column: 3/4;
-  justify-self: start;
-}
-
-.modal-close {
-  grid-column: 3;
-  justify-self: center;
-  align-self: flex-start;
-  top: 5vh;
-  right: 5vh;
-  padding-left: 2vw;
-}
-
-svg {
-  color: black;
-  z-index: 9999;
+#apod-top-footer svg {
+  z-index: 10;
   margin: 1px auto;
-  width: 50px;
-  height: 50px;
+  height: 35px;
+  width: 35px;
   transition: 100ms linear;
 }
 
-
-line {
-  stroke-width: 10px;
+#apod-share-svg {
+  justify-self: flex-end;
 }
 
-svg:hover {
-  transform: scale(1.25);
+#apod-expand-svg {
+  justify-self: flex-start;
+}
+
+#apod-bottom-footer svg {
+  z-index: 10;
+  height: 35px;
+  width: 35px;
+  transition: 100ms linear;
+  padding: 15px;
+  background-color: rgba(50,50,50, .7);
+}
+
+#apod-top-footer line {
+  stroke-width: 50px;
+  stroke: white;
+}
+
+#apod-bottom-footer path {
+  fill: white;
+  stroke: white;
+}
+
+.apod-gallery svg:hover {
+  transform: scale(1.35);
+}
+
+#apod-error {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  top: 100px;
+  font-size: 1.5em;
+  color: white;
+}
+
+.apod-gallery main > p {
+  padding: 10px;
+  background: rgb(225, 225, 225);
+  max-width: 100%;
+  margin: 10px auto 10px auto;
+  box-shadow: 3px 3px 3px rgb(53, 107, 104);
 }
 
 @media screen and (max-width: 575px){
-  #img-navigation {
+  #apod-img-navigation {
     display: grid;
-    /* max-height: 250px; */
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
-  }
-
-  .modal-left {
-    grid-row: 1;
-    grid-column: 1;
-    justify-self: center;
-    margin: 1px;
-  }
-
-  .modal-right {
-    grid-row: 1;
-    grid-column: 2;
-    justify-self: center;
-    margin: 1px;
-
   }
 }

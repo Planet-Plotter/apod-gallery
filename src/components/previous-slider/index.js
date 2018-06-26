@@ -4,7 +4,6 @@ class PreviousSlider extends Component {
   render() {
     return (
       <button
-        className="modal-button modal-left"
         onClick={this.props.handlePreviousImg}
       >
         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 200">

@@ -4,7 +4,7 @@ class CloseButton extends Component {
   render() {
     return (
       <button
-        className="modal-button modal-close"
+        className="apod-gallery-button modal-close"
         onClick={this.props.closeModal}
       >
         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 200 200">
