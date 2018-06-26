@@ -3,7 +3,7 @@ import './form.css';
 
 class MyForm extends Component {
   createYearOptions = () => {
-    const currYear = this.currentDate()[2];
+    const currYear = this.props.currentDate()[2];
 
     const options = [];
 
@@ -18,13 +18,13 @@ class MyForm extends Component {
   }
 
   createMonthOptions = () => {
-    const currYear = this.currentDate()[2];
+    const currYear = this.props.currentDate()[2];
     const selectedYear = this.props.year;
     let maxMonth = 12;
     let minMonth = 1;
 
     if (selectedYear === currYear) {
-      maxMonth = this.currentDate()[1]; //eslint-disable-line
+      maxMonth = this.props.currentDate()[1]; //eslint-disable-line
     }
 
     if (selectedYear === 1995) {
@@ -43,8 +43,8 @@ class MyForm extends Component {
   }
 
   createDayOptions = () => {
-    const currYear = this.currentDate()[2];
-    const currMonth = this.currentDate()[1];
+    const currYear = this.props.currentDate()[2];
+    const currMonth = this.props.currentDate()[1];
     const selectedYear = this.props.year;
     const selectedMonth = this.props.month;
     let maxDay = 31;
@@ -64,7 +64,7 @@ class MyForm extends Component {
 
     if (selectedYear === currYear) {
       if (selectedMonth === currMonth) {
-        maxDay = this.currentDate()[0]; // eslint-disable-line
+        maxDay = this.props.currentDate()[0]; // eslint-disable-line
       }
     }
 
@@ -87,14 +87,14 @@ class MyForm extends Component {
     return options;
   }
 
-  currentDate = () => {
-    const dateObj = new Date();
-    const month = dateObj.getMonth() + 1;
-    const day = dateObj.getDate();
-    const year = dateObj.getFullYear();
+  // currentDate = () => {
+  //   const dateObj = new Date();
+  //   const month = dateObj.getMonth() + 1;
+  //   const day = dateObj.getDate();
+  //   const year = dateObj.getFullYear();
 
-    return [day, month, year];
-  }
+  //   return [day, month, year];
+  // }
 
   handleSelectChange = (event) => {
     const ValidatedDateRequest = (date) => {
@@ -103,7 +103,7 @@ class MyForm extends Component {
         currDay,
         currMonth,
         currYear,
-      ] = this.currentDate();
+      ] = this.props.currentDate();
 
       // Check for minimum year
       if (newDate[2] === 1995) {

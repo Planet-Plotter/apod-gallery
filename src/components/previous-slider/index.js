@@ -4,7 +4,9 @@ class PreviousSlider extends Component {
   render() {
     return (
       <button
+        id={this.props.id}
         onClick={this.props.handlePreviousImg}
+        className={this.props.hide ? this.props.hide : null}
       >
         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 200">
           <line x1="100" y1="0" x2="0" y2="100" stroke="black" strokeLinecap="square" />

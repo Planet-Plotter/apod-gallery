@@ -12,7 +12,6 @@ class App extends Component {
   // This means no need for a constructor or props here
   state = {
     data: [],
-    modalIsOpen: false,
     day: 16,
     month: 6,
     year: 1995,
@@ -20,6 +19,15 @@ class App extends Component {
 
   componentDidMount = () => {
     this.handleSubmit([this.state.day, this.state.month, this.state.year]);
+  }
+
+  currentDate = () => {
+    const dateObj = new Date();
+    const month = dateObj.getMonth() + 1;
+    const day = dateObj.getDate();
+    const year = dateObj.getFullYear();
+
+    return [day, month, year];
   }
 
   requestPlanetData = (queryUrl) => {
@@ -33,7 +41,6 @@ class App extends Component {
       .catch(error => {
         console.log(error);
         this.setState({
-          modalIsOpen: true,
           error: 'Oh no! No APOD image exists for this date. Please select another date or go to the next image.',
         });
       });
@@ -47,6 +54,25 @@ class App extends Component {
       year,
     ] = values;
 
+    // CHeck if submitted date is NEWER than current Date
+    const currDate = this.currentDate();
+    if (year === currDate[2] && month === currDate[1] && day >= currDate[0]) {
+      this.setState({
+        currentDateReached: true,
+        firstDateReached: false,
+      });
+    } else if (year === 1995 && month === 6 && day <= 16) {
+      console.log('hit first day check');
+      this.setState({
+        currentDateReached: false,
+        firstDateReached: true,
+      });
+    } else {
+      this.setState({
+        currentDateReached: false,
+        firstDateReached: false,
+      });
+    }
     this.setState({
       day,
       month,
@@ -139,18 +165,6 @@ class App extends Component {
     this.handleSubmit([nextDay, month, year]);
   }
 
-  toggleModal = () => {
-    if (this.state.modalIsOpen) {
-      this.setState({
-        modalIsOpen: false,
-      });
-    } else {
-      this.setState({
-        modalIsOpen: true,
-      });
-    }
-  }
-
   openHDImg = () => {
     window.open(this.state.data.hdurl, '_blank');
   }
@@ -183,6 +197,7 @@ class App extends Component {
               month={this.state.month}
               year={this.state.year}
               onComplete={this.handleSubmit}
+              currentDate={this.currentDate}
             />
           </div>            
 
@@ -198,11 +213,13 @@ class App extends Component {
               <PreviousSlider
                 id="apod-previous-button"
                 handlePreviousImg={this.handlePreviousImg}
+                hide={this.state.firstDateReached ? 'apod-hide' : null}
               />
               <p>{title}</p>
               <NextSlider
                 id="apod-next-button"
                 handleNextImg={this.handleNextImg}
+                hide={this.state.currentDateReached ? 'apod-hide' : null}
               />
             </footer>
             <footer id="apod-bottom-footer">

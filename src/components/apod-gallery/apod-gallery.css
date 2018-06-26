@@ -50,7 +50,7 @@ main {
 
 #apod-img-container footer {
   display: grid;
-  grid-template-columns: auto 75% auto;
+  grid-template-columns: 12.5% 75% 12.5%;
   grid-template-rows: 1fr;
   align-items: center;
   justify-items: center;
@@ -79,6 +79,7 @@ main {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   background-color: rgba(50,50,50, .7);
+  grid-column: 2/3;
 }
 
 #apod-img-container button {
@@ -156,4 +157,10 @@ main {
   max-width: 100%;
   margin: 10px auto 10px auto;
   box-shadow: 3px 3px 3px rgb(53, 107, 104);
+}
+
+/* Selector to HIDE divs by class */
+
+.apod-hide {
+  display: none;
 }

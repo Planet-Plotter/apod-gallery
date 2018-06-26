@@ -5,6 +5,7 @@ class NextSlider extends Component {
     return (
       <button
         id={this.props.id}
+        className={this.props.hide ? this.props.hide : null}
         onClick={this.props.handleNextImg}
       >
         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 200">
